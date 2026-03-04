@@ -6,7 +6,8 @@ description = "Run unit tests"
 run = "npm test"
 
 [tasks.release]
-description = "Bump version (patch), update tags, and push to origin"
+description = "Run tests, bump version (patch), update tags, and push to origin"
+depends = ["test"]
 run = "npm version patch && git push origin main --tags"
 
 [tasks.version]
