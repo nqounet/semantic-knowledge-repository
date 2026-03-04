@@ -1,0 +1,7 @@
+[tasks.version]
+description = "Update the version using npm version"
+run = "npm version patch"
+
+[tasks.commit]
+description = "Commit all changes"
+run = "git add . && git commit -m \"Update version and mise tasks\""
