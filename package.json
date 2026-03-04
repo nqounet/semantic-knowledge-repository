@@ -10,12 +10,21 @@
     "type": "git",
     "url": "git+https://github.com/nqounet/semantic-knowledge-repository.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "gemini",
+    "cli",
+    "skill",
+    "knowledge",
+    "repository"
+  ],
+  "author": "nqounet <mail@nqou.net>",
   "license": "MIT",
   "type": "commonjs",
   "bugs": {
     "url": "https://github.com/nqounet/semantic-knowledge-repository/issues"
   },
-  "homepage": "https://github.com/nqounet/semantic-knowledge-repository#readme"
+  "homepage": "https://github.com/nqounet/semantic-knowledge-repository#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
