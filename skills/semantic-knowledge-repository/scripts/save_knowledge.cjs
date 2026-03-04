@@ -4,14 +4,17 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
-const KNOWLEDGE_DIR = path.join(os.homedir(), '.agents', 'knowledges');
+function getKnowledgeDir() {
+  return path.join(os.homedir(), '.agents', 'knowledges');
+}
 
 function saveKnowledge(filename, content) {
-  if (!fs.existsSync(KNOWLEDGE_DIR)) {
-    fs.mkdirSync(KNOWLEDGE_DIR, { recursive: true });
+  const dir = getKnowledgeDir();
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
   }
 
-  let filePath = path.join(KNOWLEDGE_DIR, filename);
+  let filePath = path.join(dir, filename);
   if (!filePath.endsWith('.json')) {
     filePath += '.json';
   }
@@ -22,7 +25,7 @@ function saveKnowledge(filename, content) {
   while (fs.existsSync(finalPath)) {
     const ext = path.extname(filePath);
     const base = path.basename(filePath, ext);
-    finalPath = path.join(KNOWLEDGE_DIR, `${base}-${counter}${ext}`);
+    finalPath = path.join(dir, `${base}-${counter}${ext}`);
     counter++;
   }
 
@@ -30,17 +33,26 @@ function saveKnowledge(filename, content) {
     const data = typeof content === 'string' ? JSON.parse(content) : content;
     fs.writeFileSync(finalPath, JSON.stringify(data, null, 2));
     console.log(`Success: Knowledge saved to ${finalPath}`);
+    return finalPath;
   } catch (error) {
-    console.error(`Error: Failed to save knowledge. ${error.message}`);
+    throw new Error(`Failed to save knowledge. ${error.message}`);
+  }
+}
+
+if (require.main === module) {
+  const args = process.argv.slice(2);
+  if (args.length < 2) {
+    console.log('Usage: node save_knowledge.cjs <filename> <json_content>');
+    process.exit(1);
+  }
+
+  const [filename, ...contentParts] = args;
+  try {
+    saveKnowledge(filename, contentParts.join(' '));
+  } catch (err) {
+    console.error(`Error: ${err.message}`);
     process.exit(1);
   }
 }
 
-const args = process.argv.slice(2);
-if (args.length < 2) {
-  console.log('Usage: node save_knowledge.cjs <filename> <json_content>');
-  process.exit(1);
-}
-
-const [filename, ...contentParts] = args;
-saveKnowledge(filename, contentParts.join(' '));
+module.exports = { saveKnowledge, getKnowledgeDir };
