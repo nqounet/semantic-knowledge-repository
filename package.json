@@ -4,7 +4,8 @@
   "description": "Semantic Knowledge Repository for Gemini CLI. Automatically extracts, saves, and searches technical findings across sessions.",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,9 @@
     "node": ">=18.0.0"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.0.2",
+    "globals": "^17.4.0",
     "jest": "^30.2.0"
   }
 }

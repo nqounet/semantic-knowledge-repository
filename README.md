@@ -1,5 +1,8 @@
 # Semantic Knowledge Repository (SKR)
 
+[![CI](https://github.com/nqounet/semantic-knowledge-repository/actions/workflows/ci.yml/badge.svg)](https://github.com/nqounet/semantic-knowledge-repository/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A Gemini CLI skill that manages a structured knowledge base in `~/.agents/knowledges/` to ensure that investigation results, technical findings, and architectural patterns are saved and reusable across different sessions.
 
 ## Overview

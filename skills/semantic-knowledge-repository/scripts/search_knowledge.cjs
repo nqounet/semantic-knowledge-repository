@@ -37,7 +37,7 @@ function searchKnowledge(query) {
           confidence: content.confidence_score
         });
       }
-    } catch (e) {
+    } catch {
       // Ignore files that aren't valid JSON
     }
   }

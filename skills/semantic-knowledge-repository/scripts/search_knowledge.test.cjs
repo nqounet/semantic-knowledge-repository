@@ -1,6 +1,5 @@
 const fs = require('fs');
 const os = require('os');
-const path = require('path');
 const { searchKnowledge } = require('./search_knowledge.cjs');
 
 describe('searchKnowledge', () => {

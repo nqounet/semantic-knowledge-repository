@@ -35,7 +35,7 @@ function saveKnowledge(filename, content) {
     console.log(`Success: Knowledge saved to ${finalPath}`);
     return finalPath;
   } catch (error) {
-    throw new Error(`Failed to save knowledge. ${error.message}`);
+    throw new Error(`Failed to save knowledge. ${error.message}`, { cause: error });
   }
 }
 

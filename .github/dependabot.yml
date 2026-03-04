@@ -1,0 +1,12 @@
+version: 2
+updates:
+  - package-ecosystem: "npm" # Node.js のパッケージをチェック
+    directory: "/"           # package.json がある場所
+    schedule:
+      interval: "weekly"     # 毎週チェック
+    open-pull-requests-limit: 10
+  
+  - package-ecosystem: "github-actions" # GitHub Actions のアップデートをチェック
+    directory: "/"
+    schedule:
+      interval: "monthly"    # 毎月チェック
