@@ -1,7 +1,14 @@
+[tools]
+node = "lts"
+
+[tasks.test]
+description = "Run unit tests"
+run = "npm test"
+
+[tasks.release]
+description = "Bump version (patch), update tags, and push to origin"
+run = "npm version patch && git push origin main --tags"
+
 [tasks.version]
 description = "Update the version using npm version"
 run = "npm version patch"
-
-[tasks.commit]
-description = "Commit all changes"
-run = "git add . && git commit -m \"Update version and mise tasks\""
