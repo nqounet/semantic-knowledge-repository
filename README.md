@@ -8,12 +8,13 @@ This skill allows the agent to automatically extract, structure, and save signif
 
 ## Installation
 
-Assuming you have [Gemini CLI](https://github.com/google/gemini-cli) installed, you can clone this repository and link it to your skills directory, or use it directly if supported by your setup.
+Assuming you have [Gemini CLI](https://github.com/google/gemini-cli) installed, you can easily install this skill with the following command:
 
 ```bash
-git clone https://github.com/nqounet/semantic-knowledge-repository.git
-# Move or link the `skills/semantic-knowledge-repository` folder to your `~/.agents/skills/` directory.
+curl -fsSL https://raw.githubusercontent.com/nqounet/semantic-knowledge-repository/main/install.sh | bash
 ```
+
+Alternatively, if you clone this repository manually, you can run `./install.sh` from the root directory to create a local symlink.
 
 ## Structure
 
