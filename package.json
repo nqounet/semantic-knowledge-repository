@@ -1,6 +1,6 @@
 {
   "name": "semantic-knowledge-repository",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Semantic Knowledge Repository for Gemini CLI. Automatically extracts, saves, and searches technical findings across sessions.",
   "main": "index.js",
   "scripts": {
